@@ -1,9 +1,13 @@
-import string, pickle
+import string, pickle, datetime
 
 alphabet = string.ascii_lowercase
 
-f = open('./today_rotors_state.enigma', 'rb')
-r1, r2, r3 = pickle.load(f)
+try:
+    f = open('./today_rotors_state.enigma', 'rb')
+    r1, r2, r3 = pickle.load(f)
+except FileNotFoundError:
+    print('pls set today rotors!!')
+    exit()
 
 
 def reflector(c):
